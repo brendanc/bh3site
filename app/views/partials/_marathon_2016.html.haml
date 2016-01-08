@@ -1,3 +1,6 @@
+- if flash[:notice]
+  %h1
+    = flash[:notice]
 %br
 %p The Boston Hash House Harriers present...
 = image_tag "marathon_2016_title.png"
@@ -31,3 +34,4 @@
 
 %h3 Questions?
 %p Email Orgasm Famine. orgasmfamine@gmail.com
+= link_to "Rego here!", new_special_event_event_registration_path(@event)

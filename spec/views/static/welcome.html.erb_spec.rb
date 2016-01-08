@@ -54,11 +54,11 @@ describe 'static/welcome.html.erb' do
   end
   
   it 'converts urls to proper external links' do
-  	ev = Event.new JSON.parse(VALID_JSON.sub(/5 The hash,/m,'http://google.com')) 
+  	ev = Event.new JSON.parse(VALID_JSON.sub(/The hash,/m,'http://google.com')) 
     assign(:next_hash,ev)
 
     render
-    puts rendered
+ #   puts rendered
     rendered.should have_selector("a[href='http://google.com'][target='_blank']")
 
   end

@@ -1,0 +1,17 @@
+%h3 Marathon 2016 Rego Form
+= simple_form_for [@event, @event_registration] do |f|
+  = f.input  :contact_email
+  = f.input  :hash_name
+  = f.input  :nerd_name
+  = f.input  :kennel
+  = f.label  :food_preference
+  = f.select :food_preference, EventRegistration::FOOD_OPTIONS
+  = f.input  :gluten_allergy, label: "I have a gluten allergy!"
+  = f.input  :need_crash_space, label: "I need crash space!"
+  = f.check_box  :extra_hab, {}, "Shirt", unchecked_value: nil
+  = f.label  "I want to purchase a marathon shirt for $25, which will be added to my rego price at checkout!"
+  %br
+  = f.label  "Shirt Size"
+  = f.select :extra_hab_size, EventRegistration::SHIRT_SIZES
+  = f.input  :payment_email, label: "Payment Email (for PayPal)"
+  = f.button :submit

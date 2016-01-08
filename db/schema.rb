@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209130717) do
+ActiveRecord::Schema.define(version: 20160105025510) do
 
   create_table "admin_users", force: true do |t|
     t.string   "first_name",      default: "",    null: false
@@ -27,6 +27,24 @@ ActiveRecord::Schema.define(version: 20141209130717) do
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
+
+  create_table "event_registrations", force: true do |t|
+    t.integer  "special_event_id"
+    t.string   "contact_email"
+    t.string   "hash_name"
+    t.string   "nerd_name"
+    t.string   "kennel"
+    t.string   "payment_email"
+    t.string   "food_preference"
+    t.boolean  "gluten_allergy"
+    t.boolean  "need_crash_space"
+    t.string   "extra_hab"
+    t.string   "extra_hab_size"
+    t.date     "registration_date"
+    t.boolean  "paid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", force: true do |t|
     t.string   "google_id"
