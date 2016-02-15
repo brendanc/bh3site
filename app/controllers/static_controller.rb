@@ -5,7 +5,7 @@ class StaticController < ApplicationController
 
   def welcome
     if !params[:id] then
-      params[:id] = 0
+      params[:id] = 1
     end
     
     @next_hash = get_next_hash(params[:id].to_f)
@@ -25,7 +25,7 @@ class StaticController < ApplicationController
   def get_next_hash(id)
       url = CAL_URL + Time.zone.now.beginning_of_day.iso8601
       cal_results = open(url)
-      ev = JSON.parse(File.open(cal_results).read)["items"][0]
+      ev = JSON.parse(File.open(cal_results).read)["items"][id]
       Event.new ev
   rescue Exception => e
       puts e
