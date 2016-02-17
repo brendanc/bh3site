@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160108125643) do
 
-  create_table "active_admin_comments", force: true do |t|
+  create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
     t.text     "body"
     t.string   "resource_id",   null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160108125643) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
-  create_table "admin_users", force: true do |t|
+  create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20160108125643) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
-  create_table "event_registrations", force: true do |t|
+  create_table "event_registrations", force: :cascade do |t|
     t.integer  "special_event_id"
     t.string   "contact_email"
     t.string   "hash_name"
@@ -65,16 +65,7 @@ ActiveRecord::Schema.define(version: 20160108125643) do
     t.float    "rego_price"
   end
 
-  create_table "events", force: true do |t|
-    t.string   "google_id"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "location"
-  end
-
-  create_table "hash_events", force: true do |t|
+  create_table "hash_events", force: :cascade do |t|
     t.string   "google_id"
     t.string   "location"
     t.float    "latitude"
@@ -83,7 +74,7 @@ ActiveRecord::Schema.define(version: 20160108125643) do
     t.datetime "updated_at"
   end
 
-  create_table "site_sections", force: true do |t|
+  create_table "site_sections", force: :cascade do |t|
     t.string   "tag"
     t.string   "data_type"
     t.text     "value"
@@ -91,31 +82,12 @@ ActiveRecord::Schema.define(version: 20160108125643) do
     t.datetime "updated_at"
   end
 
-  create_table "special_events", force: true do |t|
+  create_table "special_events", force: :cascade do |t|
     t.string   "name"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url_code"
   end
-
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

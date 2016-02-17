@@ -31,7 +31,7 @@ group :test do
 end
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.2'
+gem 'sass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -64,6 +64,9 @@ gem "simple_form"
 gem "figaro"
 gem "activeadmin", '~> 1.0.0.pre2'
 gem "devise"
+gem 'bootstrap-sass', '~> 3.3.6'
+gem "font-awesome-rails"
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
